@@ -1,4 +1,4 @@
-const chromium = require('@sparticuz/chromium');
+const chromium = require('@sparticuz/chromium-min');
 const puppeteer = require('puppeteer-core');
 const axios = require('axios');
 const fs = require('fs');
@@ -59,15 +59,14 @@ export default async function handler(req, res) {
       return value !== undefined && value !== null ? value : '';
     });
 
-    // Cài đặt đường dẫn thư viện động (Fix lỗi thiếu libnss3.so trên Vercel AL2023)
-    const execDir = await chromium.executablePath();
-    process.env.LD_LIBRARY_PATH = execDir.substring(0, execDir.lastIndexOf('/'));
+    // Remote Chromium Bypass cho Vercel
+    const execPath = await chromium.executablePath('https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar');
 
     // 4. Khởi chạy Puppeteer để Render HTML thành PDF
     const browser = await puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
-      executablePath: execDir,
+      executablePath: execPath,
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
