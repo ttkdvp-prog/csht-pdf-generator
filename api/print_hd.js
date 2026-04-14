@@ -110,6 +110,23 @@ export default async function handler(req, res) {
       rowData['GiaThueChu'] = numberToWords(rawGiaNam);
     }
 
+    // Tự động format các trường ngày tháng sang dạng chuẩn Việt Nam (DD/MM/YYYY)
+    // AppSheet API thường trả về dạng MM/DD/YYYY hoặc YYYY-MM-DD
+    const dateColumns = ['NgayKyHD', 'NgayBatDauTinhTien', 'CCCD_NgayCap', 'TuNgay', 'DenNgay'];
+    dateColumns.forEach(col => {
+      let val = rowData[col];
+      if (val) {
+        // Cố gắng parse qua Date của JavaScript (nhận dạng tốt MM/DD/YYYY và YYYY-MM-DD)
+        const d = new Date(val);
+        if (!isNaN(d.getTime())) {
+          const day = String(d.getDate()).padStart(2, '0');
+          const month = String(d.getMonth() + 1).padStart(2, '0');
+          const year = d.getFullYear();
+          rowData[col] = `${day}/${month}/${year}`;
+        }
+      }
+    });
+
     // Thay thế tất cả các placeholder {{key}}
     htmlContent = htmlContent.replace(/{{([^{}]+)}}/g, (match, paramKey) => {
       const value = rowData[paramKey.trim()];
