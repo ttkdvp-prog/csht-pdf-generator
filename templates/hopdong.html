@@ -32,22 +32,6 @@
         .justify { text-align: justify; }
         .header { margin-bottom: 20px; }
         
-        /* Định dạng ô vuông cho Mã số thuế */
-        .mst-container {
-            display: inline-flex;
-            gap: 2px;
-            vertical-align: middle;
-        }
-        .mst-box {
-            display: inline-block;
-            width: 22px;
-            height: 22px;
-            border: 1px solid #000;
-            text-align: center;
-            line-height: 22px;
-            font-weight: bold;
-            font-size: 13pt;
-        }
         .contract-title {
             text-align: center;
             font-weight: bold;
@@ -112,7 +96,7 @@
         <p>- Địa chỉ: Số 1468, đường Hùng Vương, phường Thanh Miếu, tỉnh Phú Thọ</p>
         <p>- Điện thoại: 0210.3860.123 &nbsp;&nbsp;&nbsp;&nbsp; Fax: 0210.3860.123 </p>
         <p>- Số tài khoản: 110000031172 tại Ngân hàng TMCP Công thương Việt Nam – Chi nhánh Phú Thọ</p>
-        <p>- Mã số thuế: <span class="mst-container" data-mst="{{MaSoThue}}"></span></p>
+        <p>- Mã số thuế: <span class="text-bold">{{MaSoThue}}</span></p>
         <p>- Đại diện là: <span class="text-bold">Lê Văn Đức</span> &nbsp;&nbsp;&nbsp;Chức vụ: <span class="text-bold">Phó Giám đốc</span></p>
         <p class="text-italic">(Theo Giấy ủy quyền số 1653/GUQ-PTO-NSTH ngày 01/10/2025 của Giám đốc Viễn thông Phú Thọ)</p>
 
@@ -312,7 +296,7 @@
 
     <div class="justify" style="margin-top: 20px;">
         <p>1. Tên tôi là: <span class="text-bold">{{HoTen}}</span></p>
-        <p>2. Mã số thuế: <span class="mst-container" data-mst="{{MaSoThue}}"></span></p>
+        <p>2. Mã số thuế: <span class="text-bold">{{MaSoThue}}</span></p>
         <p>3. Địa chỉ cư trú: {{DiaChiThuongTru}}</p>
 
         <p style="margin-top: 15px;">Tôi cam kết rằng, năm 2026 tôi có tổng thu nhập từ doanh thu dịch vụ thuộc diện phải khấu trừ thuế theo tỷ lệ 10%, nhưng theo ước tính tổng thu nhập trong năm của tôi không quá 100 triệu đồng chưa đến mức phải nộp thuế. Vì vậy, tôi đề nghị Viễn thông Phú Thọ căn cứ vào bản cam kết này để không khấu trừ thuế TNCN khi trả thu nhập cho tôi.</p>
@@ -418,24 +402,9 @@
         </table>
     </div>
 
-    <!-- Script Tự Động In và Định dạng MST -->
+    <!-- Script Tự Động In -->
     <script>
-        function formatMST() {
-            const containers = document.querySelectorAll('.mst-container');
-            containers.forEach(container => {
-                const mst = container.getAttribute('data-mst').replace(/\D/g, ''); // Lấy số
-                container.innerHTML = '';
-                mst.split('').forEach(char => {
-                    const box = document.createElement('span');
-                    box.className = 'mst-box';
-                    box.innerText = char;
-                    container.appendChild(box);
-                });
-            });
-        }
-
         window.onload = function() {
-            formatMST(); // Chạy định dạng ô vuông
             setTimeout(() => {
                 window.print();
             }, 800);
