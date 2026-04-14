@@ -59,11 +59,15 @@ export default async function handler(req, res) {
       return value !== undefined && value !== null ? value : '';
     });
 
+    // Cài đặt đường dẫn thư viện động (Fix lỗi thiếu libnss3.so trên Vercel AL2023)
+    const execDir = await chromium.executablePath();
+    process.env.LD_LIBRARY_PATH = execDir.substring(0, execDir.lastIndexOf('/'));
+
     // 4. Khởi chạy Puppeteer để Render HTML thành PDF
     const browser = await puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
+      executablePath: execDir,
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
