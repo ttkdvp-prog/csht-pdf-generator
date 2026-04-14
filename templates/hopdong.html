@@ -2,18 +2,15 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Hợp Đồng CSHT</title>
+    <title>Hồ Sơ Thuê - {{MaTram}}</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
         body {
             font-family: "Times New Roman", Times, serif;
-            font-size: 14pt; /* Chuẩn văn bản hành chính */
-            line-height: 1.5;
+            font-size: 14pt;
+            line-height: 1.3;
             color: #000;
             margin: 0 auto;
-            max-width: 21cm; /* Rộng A4 */
+            max-width: 21cm;
             padding: 20px;
             background: #fff;
         }
@@ -26,110 +23,145 @@
                 padding: 0;
             }
         }
+        .page-break { page-break-before: always; }
         .text-center { text-align: center; }
         .text-bold { font-weight: bold; }
         .text-italic { font-style: italic; }
         .justify { text-align: justify; }
-        .header { margin-bottom: 10px; }
-        .contract-title { 
-            font-size: 15pt; 
-            margin-top: 20px; 
-            margin-bottom: 5px; 
-            font-weight: bold;
+        .header { margin-bottom: 20px; }
+        .contract-title {
             text-align: center;
-        }
-        .dashed-line { 
-            border-top: 1px solid #000; 
-            width: 30%; 
-            margin: 5px auto 20px auto; 
-        }
-        .section-title { 
-            margin-top: 15px; 
-            font-weight: bold; 
-            text-transform: uppercase;
-        }
-        .signature-table { 
-            width: 100%; 
-            margin-top: 30px; 
-            border: none;
-        }
-        .signature-table td { 
-            width: 50%; 
-            text-align: center; 
-            vertical-align: top; 
-        }
-        P {
-            margin-top: 5px;
+            font-weight: bold;
+            font-size: 15pt;
+            margin-top: 15px;
             margin-bottom: 5px;
+        }
+        .section-title {
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        p { margin: 5px 0; }
+        .dashed-line {
+            border-bottom: 1px dashed #000;
+            width: 50%;
+            margin: 10px auto;
+        }
+        .signature-table {
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+        .signature-table td {
+            width: 50%;
+            vertical-align: top;
         }
     </style>
 </head>
 <body>
+
+    <!-- ==========================================
+         PHẦN 1: HỢP ĐỒNG (Trang 1 - 4)
+    =========================================== -->
     <div class="header text-center">
         <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
         <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
     </div>
 
-    <div class="contract-title">HỢP ĐỒNG THUÊ ĐẤT XÂY DỰNG TRẠM THÔNG TIN DI ĐỘNG</div>
-    <div class="text-center text-bold" style="font-size: 14pt;">Số: {{SoHopDong}}/HĐTD</div>
-    <div class="text-center text-bold" style="font-size: 14pt;">Trạm: {{TenTram}} ({{MaTram}})</div>
+    <div class="contract-title">HỢP ĐỒNG<br>THUÊ ĐẤT XÂY DỰNG TRẠM THÔNG TIN DI ĐỘNG</div>
+    <div class="text-center text-bold">Số: {{SoHopDong}}/HĐTD</div>
+    <div class="text-center text-bold">Trạm: {{TenTram}} ({{MaTram}})</div>
     <div class="dashed-line"></div>
 
     <div class="justify">
-        <p style="margin-top: 15px;">Hôm nay, ngày {{NgayKyHD}} tại Viễn thông Phú Thọ, chúng tôi gồm:</p>
+        <p class="text-italic">- Căn cứ Bộ luật dân sự số 91/2015/QH13 được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam thông qua ngày 24 tháng 11 năm 2015 tại kỳ họp thứ 10 Quốc khóa XIII;</p>
+        <p class="text-italic">- Căn cứ luật thương mại số 36/2005/QH11 đã được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam thông qua ngày 14/6/2005;</p>
+        <p class="text-italic">- Căn cứ nhu cầu và khả năng đáp ứng của các bên.</p>
+        
+        <p style="margin-top: 15px;">Hôm nay, ngày {{NgayKyHD}}, tại {{DiaChiTram}}, chúng tôi gồm:</p>
 
-        <div class="section-title">BÊN CHO THUÊ (BÊN A):</div>
-        <p>- Đại diện: Ông/bà <span class="text-bold">{{HoTen}}</span></p>
-        <p>- Sinh ngày: {{NgaySinh}}</p>
-        <p>- Số CCCD: {{CCCD}} &nbsp;&nbsp;&nbsp;&nbsp;Ngày cấp: {{CCCD_NgayCap}}</p>
+        <div class="section-title">BÊN CHO THUÊ ĐẤT (dưới đây gọi tắt là bên A)</div>
+        <p>- Ông/bà: <span class="text-bold">{{HoTen}}</span> – Đại diện gia đình</p>
+        <p>- Số điện thoại: {{SoDienThoai}}</p>
+        <p>- CCCD số: {{CCCD}} - cấp ngày: {{CCCD_NgayCap}}</p>
         <p>- Địa chỉ thường trú: {{DiaChiThuongTru}}</p>
-        <p>- SĐT: {{SoDienThoai}}</p>
-        <p>- Mã số thuế: {{MaSoThue}}</p>
+        <p>- Tài khoản: <span class="text-bold">{{SoTaiKhoan}}</span> Ngân hàng: <span class="text-bold">{{NganHang}}</span></p>
 
-        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
-            <p class="text-italic" style="margin-top: 10px;">Người được ủy quyền nhận tiền:</p>
-            <p>- Đại diện: Ông/bà <span class="text-bold">{{UQ_HoTen}}</span></p>
-            <p>- Số CCCD: {{UQ_CCCD}} &nbsp;&nbsp;&nbsp;&nbsp;Ngày cấp: {{UQ_CCCD_NgayCap}}</p>
-            <p>- Địa chỉ: {{UQ_DiaChi}}</p>
-            <p>- SĐT: {{UQ_SoDienThoai}}</p>
-        </div>
+        <div class="section-title">BÊN THUÊ ĐẤT (dưới đây gọi tắt là bên B)</div>
+        <p>- Tên doanh nghiệp: <span class="text-bold">VIỄN THÔNG PHÚ THỌ</span></p>
+        <p>- Địa chỉ: Số 1468, đường Hùng Vương, phường Thanh Miếu, tỉnh Phú Thọ</p>
+        <p>- Điện thoại: 0210.3860.123 &nbsp;&nbsp;&nbsp;&nbsp; Fax: 0210.3860.123 </p>
+        <p>- Số tài khoản: 110000031172 tại Ngân hàng TMCP Công thương Việt Nam – Chi nhánh Phú Thọ</p>
+        <p>- Mã số thuế: 2600102568</p>
+        <p>- Đại diện là: <span class="text-bold">Ông Lê Văn Đức</span> &nbsp;&nbsp;&nbsp;Chức vụ: <span class="text-bold">Phó Giám đốc</span></p>
+        <p class="text-italic">(Theo Giấy ủy quyền số 1653/GUQ-PTO-NSTH ngày 01/10/2025 của Giám đốc Viễn thông Phú Thọ)</p>
 
-        <div class="section-title">BÊN THUÊ (BÊN B): VIỄN THÔNG PHÚ THỌ</div>
-        <p>- Địa chỉ: Số 504 đường Châu Phong, phường Gia Cẩm, thành phố Việt Trì, tỉnh Phú Thọ.</p>
-        <p>- Đại diện: Ông/Bà Nguyễn Việt Hùng - Chức vụ: Giám đốc Viễn thông Phú Thọ (Theo Giấy ủy quyền số 1653/GUQ-PTO-NSTH ngày 01/10/2025 của Giám đốc Viễn thông Phú Thọ).</p>
-        <p>- Mã nhân viên giao dịch: {{MaNV}}</p>
+        <p style="margin-top: 15px;">Hai bên thống nhất thỏa thuận ký hợp đồng với những điều khoản như sau:</p>
 
-        <div class="section-title" style="margin-top: 20px;">Điều 1. Đối tượng của hợp đồng</div>
-        <p>Ông/bà <span class="text-bold">{{HoTen}}</span> đồng ý cho Viễn Thông Phú Thọ thuê mặt bằng nhà, đất và một số vị trí để trồng cột dẫn điện AC và cáp quang lên vị trí đất làm trạm phát sóng tại địa chỉ <span class="text-bold">{{DiaChiTram}}</span> để sử dụng vào mục đích: Xây dựng trạm phát sóng thông tin di động.</p>
-        <p>- Thuộc thông tin giấy tờ đất: {{TinhTrangGiayDat}}. Giấy GCNQSD: {{GiayCNQSDD}}.</p>
-        <p>- Khu vực: {{MoTaViTri}}.</p>
-        <p>- Diện tích khu vực thuê: <span class="text-bold">{{DienTichThue_m2}}</span> m2.</p>
+        <div class="section-title">Điều 1. Đối tượng của hợp đồng.</div>
+        <p>- Gia đình Ông/Bà <span class="text-bold">{{HoTen}}</span> đồng ý cho Viễn Thông Phú Thọ thuê mặt bằng nhà, đất và một số vị trí để trồng cột dẫn điện AC và cáp quang lên vị trí đất làm trạm phát sóng tại địa chỉ {{DiaChiTram}} để sử dụng vào mục đích: Xây dựng trạm phát sóng thông tin di động.</p>
+        <p>- Thuộc thông tin đất: {{TinhTrangGiayDat}}. {{GiayCNQSDD}}.</p>
+        <p>- Diện tích tổng: {{DienTichTong}}m2.</p>
+        <p>- Diện tích mặt bằng bên A cho bên B thuê là: <span class="text-bold">{{DienTichThue_m2}}</span>m2 ({{MoTaViTri}}).</p>
+        <p>- Diện tích đất, nhà và tài sản trên là thuộc quyền sở hữu hợp pháp và duy nhất của bên A.</p>
+        <p>- Hai bên cùng xác định ranh giới điểm đất, vị trí đặt trạm phát sóng (Chi tiết có sơ đồ mặt bằng đính kèm) sơ lược là: tại {{DiaChiTram}}.</p>
 
-        <div class="section-title">Điều 2. Trách nhiệm và quyền lợi của bên A</div>
-        <p>- Bàn giao vị trí, mặt bằng cho bên B lắp đặt thiết bị đúng thời hạn.</p>
-        <p>- Đảm bảo an ninh cho thiết bị của bên B.</p>
-        <p>- Tạo điều kiện cho nhân viên bên B ra vào kiểm tra, sửa chữa trạm 24/7.</p>
+        <div class="section-title">Điều 2. Trách nhiệm và Nghĩa vụ của bên A</div>
+        <p>- Bàn giao vị trí mặt bằng tại điều 1 cho bên B để triển khai xây dựng lắp đặt thiết bị đúng như thỏa thuận kể từ ngày hợp đồng có hiệu lực.</p>
+        <p>- Tạo điều kiện thuận lợi hỗ trợ bên B trong quá trình triển khai thi công xây dựng trạm, làm các thủ tục xin cấp giấy phép xây dựng trạm (nếu có) và việc dẫn điện AC và kéo cáp quang qua các vị trí đã thỏa thuận, hoàn thiện các thủ tục pháp lý để phục vụ hoạt động của trạm.</p>
+        <p>- Chịu trách nhiệm và đảm bảo tính pháp lý các thủ tục cần thiết về quyền sở hữu mặt bằng cho thuê. Đảm bảo mặt bằng cho thuê không có sự tranh chấp phản đối của các hộ xung quanh, doanh nghiệp khác ...</p>
+        <p>- Tạo điều kiện thuận lợi cho bên B trong quá trình thi công xây dựng, lắp đặt, vận hành thiết bị, nâng cấp, sửa chữa, bảo dưỡng, xử lý ứng cứu, khắc phục sự cố 24h/24h kể cả ngày lễ và các ngày nghỉ để đảm bảo chất lượng thông tin theo quy định của ngành Bưu chính Viễn thông.</p>
+        <p>- Đảm bảo an toàn cho toàn bộ vật tư, thiết bị của bên B được lắp đặt tại nơi thuê (bên A).</p>
+        <p>- Đảm bảo quyền sử dụng vị trí, mặt bằng của bên B thuê, không chuyển giao quyền sử dụng cho tổ chức và cá nhân khác trong thời gian thực hiện hợp đồng giữa hai bên. Trong trường hợp nếu phải chuyển giao thì hợp đồng này vẫn được thực thi tiếp đối với bên được chuyển giao đến khi hết hạn hợp đồng.</p>
+        <p>- Trong thời gian thực hiện hợp đồng bên A có trách nhiệm phối hợp với bên B trông coi, bảo vệ tài sản của bên B, khi có sự cố bất thường xảy ra, bên A liên hệ ngay cho bên B qua số điện thoại 0210 3882 346. Trong trường hợp xảy ra mất mát tài sản của bên B, bên A có trách nhiệm cùng phối hợp bên B và các cơ quan chức năng trong quá trình điều tra tài sản bị mất đó cho bên B.</p>
 
-        <div class="section-title">Điều 3. Trách nhiệm và quyền lợi của bên B</div>
-        <p>- Thanh toán tiền thuê đúng hạn theo hợp đồng.</p>
-        <p>- Sử dụng mặt bằng đúng phần mục đích.</p>
-        <p>- Tự chịu trách nhiệm về an toàn kỹ thuật, an ninh thông tin và phòng cháy chữa cháy đối với thiết bị lắp đặt.</p>
+        <div class="section-title">Điều 3. Trách nhiệm và Quyền lợi của bên B</div>
+        <p>- Được toàn quyền sử dụng vị trí, mặt bằng đã thuê phục vụ đầy đủ cho việc phát sóng trạm thông tin di động.</p>
+        <p>- Phối kết hợp với bên A để bảo quản tài sản của bên B. Tuy nhiên bên B phải tự chịu trách nhiệm nếu xảy ra mất mát thiết bị do lỗi của mình.</p>
+        <p>- Chịu trách nhiệm chi trả toàn bộ chi phí sử dụng điện năng hàng tháng của trạm theo chỉ số công tơ điện riêng do hai bên cùng chốt và ghi vào sổ theo dõi.</p>
+        <p>- Trong quá trình triển khai lắp đặt thiết bị cũng như trong quá trình duy trì vận hành trạm, bên B phải đảm bảo an toàn tuyệt đối về kỹ thuật, an toàn lao động, an toàn cho người và các công trình khác liền kề. Bảo đảm mỹ quan, vệ sinh môi trường và có đầy đủ dụng cụ phòng chống cháy nổ. Trong trường hợp để xảy ra mất an toàn (do lỗi của bên B) thì bên B phải có trách nhiệm bồi thường thiệt hại và chịu hoàn toàn trước pháp luật.</p>
+        <p>- Trong thời gian thực hiện hợp đồng, bên B không được quyền chuyển giao mặt bằng thuê cho tổ chức, cá nhân khác dưới bất kỳ hình thức nào. Nếu chưa được cơ quan có thẩm quyền của nhà nước Việt Nam cho phép.</p>
+        <p>- Thanh toán tiền đầy đủ cho bên A theo Điều 4 của hợp đồng.</p>
 
-        <div class="section-title">Điều 4. Giá thuê và phương thức thanh toán</div>
-        <p>- Giá thuê: <span class="text-bold">{{GiaThueThang}}</span> đồng/tháng.</p>
-        <p>- Tổng tiền thuê 1 năm: <span class="text-bold">{{GiaThueNam}}</span> đồng (Bằng chữ: <span class="text-italic">{{GiaThueChu}}</span>).</p>
-        <p>- Phương thức thanh toán: Thanh toán chuyển khoản định kỳ {{ChuKyThanhToan}} vào đầu chu kỳ thanh toán.</p>
-        <p>- Mức tiền cho {{ThoiDiemThanhToan}}: <span class="text-bold">{{SotienThanhToan}}</span> đồng (Bằng chữ: <span class="text-italic">{{SotienThanhToanBangChu}}</span>).</p>
-        <p>- Người thụ hưởng: <span class="text-bold">{{HoTen}}</span> (Số tài khoản: <span class="text-bold">{{SoTaiKhoan}}</span> tại Ngân hàng <span class="text-bold">{{NganHang}}</span>).</p>
+        <div class="section-title">Điều 4. Đơn giá, thời hạn và phương thức thanh toán</div>
+        <p>- Thời hạn thuê {{ThoiHanNam}} kể từ ngày {{NgayBatDauTinhTien}}.</p>
+        <p>- Thời gian bắt đầu tính tiền: Ngày {{NgayBatDauTinhTien}}.</p>
+        <p>- Giá thuê hàng tháng: <span class="text-bold">{{GiaThueThang}} đồng/tháng.</span> (Giá trên bao gồm tiền thuê đất + trông coi bảo vệ trạm).</p>
+        <p>- Tổng tiền thuê 1 năm: <span class="text-bold">{{GiaThueNam}} đồng.</span> (Bằng chữ: <span class="text-italic">{{GiaThueChu}}</span>).</p>
+        <p>- Hai bên thống nhất giá thuê trên không thay đổi trong suốt thời gian thực hiện hợp đồng.</p>
+        <p>- Phương thức thanh toán: Bên B sẽ thanh toán cho bên A định kỳ thanh toán {{ChuKyThanhToan}} và thanh toán vào tháng đầu của kỳ thanh toán.</p>
 
         <div class="section-title">Điều 5. Hiệu lực hợp đồng</div>
-        <p>Hợp đồng có hiệu lực <span class="text-bold">{{ThoiHanNam}}</span> kể từ ngày {{TuNgay}} đến hết ngày {{DenNgay}}. Ngày bắt đầu tính tiền thuê: {{NgayBatDauTinhTien}}.</p>
-        <p>Hợp đồng được lập thành nhiều bản có giá trị pháp lý tương đương nhau. Hết hạn sẽ được tự động gia hạn thêm nếu không bên nào có ý kiến khác bằng văn bản trước thời hạn. ({{GhiChu}})</p>
+        <p>- Hợp đồng có hiệu lực {{ThoiHanNam}} kể từ ngày {{NgayBatDauTinhTien}}.</p>
+        <p>- Trước khi hết hạn hợp đồng 03 tháng mà bên A hoặc bên B không có văn bản hoặc thông báo cho nhau về việc kết thúc hợp đồng, thì hợp đồng này sẽ có hiệu lực thêm 05 năm tiếp theo. Quy định này được áp dụng tương tự cho các năm hiệu lực tiếp theo của hợp đồng và cho đến khi một trong hai bên có đề nghị chấm dứt hợp đồng.</p>
+        <p>- Trường hợp thuê không tròn tháng thì giá thuê sẽ được tính: giá thuê tròn tháng/30 ngày X (nhân) với số ngày sử dụng thực tế trong tháng.</p>
+        <p>- Nếu bên A không còn nhu cầu cho bên B thuê tiếp thì phải thông báo cho bên B bằng văn bản trước tối thiểu 03 tháng kể từ ngày dự định chấm dứt và phải đền bù cho bên B toàn bộ giá trị thiệt hại do phải dịch chuyển trạm trước thời hạn của hợp đồng.</p>
+        <p>- Hợp đồng thuê đất đương nhiên hết hiệu lực trong các trường hợp sau đây:</p>
+        <p>&nbsp;&nbsp;+ Mặt bằng bị tiêu hủy do nguyên nhân bất khả kháng (thiên tai, chiến tranh ....)</p>
+        <p>&nbsp;&nbsp;+ Theo sự thỏa thuận của các bên.</p>
+        <p>&nbsp;&nbsp;+ Bên B bị phát mại tài sản hoặc bị phá sản.</p>
+        <p>&nbsp;&nbsp;+ Bên B bị thu hồi quyết định thuê đất hoặc giấy phép hoạt động trước thời hạn.</p>
+        <p>- Hợp đồng này tự động được thanh lý trong các trường hợp sau:</p>
+        <p>&nbsp;&nbsp;+ Hết thời hạn thuê mà hai bên không ký tiếp hoặc không thỏa thuận gia hạn;</p>
+        <p>&nbsp;&nbsp;+ Bên A không còn quyền sở hữu hoặc quyền sử dụng hợp pháp đối với mặt bằng;</p>
+        <p>&nbsp;&nbsp;+ Bên B có quyết định di dời hoặc ngừng khai thác trạm theo kế hoạch mạng lưới của Tập đoàn VNPT;</p>
+        <p>- Trong thời gian thực hiện hợp đồng bên A đảm bảo quyền sử dụng đất của bên B, nếu vi phạm bên A phải chịu trách nhiệm về những thiệt hại của bên B do bên A gây ra.</p>
+
+        <div class="section-title">Điều 6. Phạt vi phạm hợp đồng và giải quyết tranh chấp.</div>
+        <p>- Nếu một trong hai bên không thực hiện đầy đủ các trách nhiệm ghi trong hợp đồng này dẫn đến thiệt hại về kinh tế cho bên kia thì phải chịu bồi thường toàn bộ các giá trị thiệt hại đó.</p>
+        <p>- Trong trường hợp xảy ra tranh chấp thì hai bên tích cực tìm biện pháp để thương lượng giải quyết. Nếu các bên vẫn không giải quyết được thì đưa ra Tòa án nơi bên A đặt trụ sở để giải quyết. Quyết định của Tòa án buộc các bên phải thi hành. Mọi chi phí liên quan đến giải quyết tranh chấp do bên thua kiện chịu.</p>
+
+        <div class="section-title">Điều 7. Điều khoản chung</div>
+        <p>- Hai bên cam kết thực hiện đúng theo các điều khoản của hợp đồng.</p>
+        <p>- Mọi thay đổi trong hợp đồng phải được tư thỏa thuận của hai bên bằng văn bản. Nếu bên nào không thực hiện hợp đồng hoặc thực hiện trái với điều đã cam kết thì bên đó phải bồi thường theo pháp luật hiện hành.</p>
+        <p>- Các yêu cầu, bổ sung sau này (nếu có) đã được thỏa thuận bằng văn bản của cả hai bên được coi là bộ phận không thể tách rời của hợp đồng này.</p>
+        <p>Hợp đồng này được lập thành 04 bản mỗi bên giữ 02 bản và có giá trị pháp lý như nhau.</p>
 
         <table class="signature-table">
             <tr>
-                <td class="text-bold">ĐẠI DIỆN BÊN A<br><span style="font-weight: normal; font-style: italic;">(Ký, ghi rõ họ tên)</span></td>
-                <td class="text-bold">ĐẠI DIỆN BÊN B<br><span style="font-weight: normal; font-style: italic;">(Ký tên, đóng dấu)</span></td>
+                <td class="text-bold">ĐẠI DIỆN BÊN A<br><span style="font-weight: normal; font-style: italic;">(Ký tên)</span></td>
+                <td class="text-bold">ĐẠI DIỆN BÊN B<br><span style="font-weight: normal; font-style: italic;">(Ký tên)</span></td>
             </tr>
             <tr>
                 <td style="height: 100px;"></td>
@@ -137,12 +169,237 @@
             </tr>
             <tr>
                 <td style="padding-top: 10px;" class="text-bold">{{HoTen}}</td>
-                <td class="text-bold">Ông/Bà Nguyễn Việt Hùng</td>
+                <td class="text-bold">Ông Lê Văn Đức</td>
             </tr>
         </table>
     </div>
 
-    <!-- Script Tự Động Kích Hoạt Chế Độ Print PDF Của Trình Duyệt -->
+    <!-- ==========================================
+         PHẦN 2: BIÊN BẢN BÀN GIAO MẶT BẰNG
+    =========================================== -->
+    <div class="page-break"></div>
+    
+    <div class="header text-center">
+        <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+        <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
+    </div>
+
+    <div class="contract-title">BIÊN BẢN BÀN GIAO MẶT BẰNG</div>
+    
+    <div class="justify">
+        <p>Căn cứ vào hợp đồng số {{SoHopDong}}/HĐTD, ngày {{NgayKyHD}} giữa Ông/bà {{HoTen}} và Viễn thông Phú Thọ.</p>
+        <p>Hôm nay, ngày {{NgayKyHD}}, tại {{DiaChiTram}}, chúng tôi gồm:</p>
+
+        <div class="section-title">BÊN A: (BÊN CHO THUÊ)</div>
+        <p>- Người đại diện: <span class="text-bold">{{HoTen}}</span></p>
+        <p>- Địa chỉ: {{DiaChiThuongTru}}</p>
+        <p>- Số CCCD: {{CCCD}} cấp ngày {{CCCD_NgayCap}}</p>
+        <p>- Điện thoại: {{SoDienThoai}}</p>
+
+        <div class="section-title">BÊN B: (BÊN THUÊ)</div>
+        <p>Tên doanh nghiệp: <span class="text-bold">VIỄN THÔNG PHÚ THỌ</span></p>
+        <p>- Người đại diện: <span class="text-bold">(Ông) Nguyễn Minh Cường</span> - Chức vụ: <span class="text-bold">Phó Giám đốc Trung tâm Hạ tầng site Phú Thọ</span></p>
+        <p>- Địa chỉ: Số 1468, đường Hùng Vương, phường Thanh Miếu, tỉnh Phú Thọ</p>
+        <p>- Điện thoại: 0210.3882346</p>
+        <p>- Tài khoản: 110000031172 tại Ngân hàng Thương mại cổ phần Công thương Việt Nam – Chi nhánh Phú Thọ</p>
+        <p>- Mã số thuế: 2600102568</p>
+
+        <p style="margin-top: 15px;">Sau khi kiểm tra thực tế tại hiện trường, hai bên cùng nhau tiến hành giao nhận vị trí đặt trạm viễn thông với các nội dung như sau:</p>
+        <p>Ông/Bà {{HoTen}} bàn giao diện tích mặt bằng cho Viễn thông Phú Thọ để xây dựng cơ sở hạ tầng trạm {{TenTram}} với tổng diện tích đất bàn giao cho thuê là <span class="text-bold">{{DienTichThue_m2}} m2</span> mặt bằng ({{MoTaViTri}}) tại {{DiaChiTram}}.</p>
+        <p>Biên bản được lập xong hai bên thông qua và cùng nhất trí ký tên. Biên bản được lập thành 04 bản có giá trị pháp lý như nhau, mỗi bên giữ 02 bản làm cơ sở cho việc thanh toán tiền thuê theo thỏa thuận của hợp đồng.</p>
+
+        <table class="signature-table">
+            <tr>
+                <td class="text-bold">ĐẠI DIỆN BÊN A</td>
+                <td class="text-bold">ĐẠI DIỆN BÊN B</td>
+            </tr>
+            <tr>
+                <td style="height: 100px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;" class="text-bold">{{HoTen}}</td>
+                <td class="text-bold">Nguyễn Minh Cường</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ==========================================
+         PHẦN 3: GIẤY ĐỀ NGHỊ THANH TOÁN (CÁ NHÂN)
+    =========================================== -->
+    <div class="page-break"></div>
+    <div class="header text-center">
+        <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+        <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
+    </div>
+    <div class="text-right text-italic" style="text-align: right; margin-top: 20px;">Phú Thọ, ngày   tháng   năm 2026</div>
+
+    <div class="contract-title">GIẤY ĐỀ NGHỊ THANH TOÁN</div>
+    <div class="text-center">Kính gửi: Viễn thông Phú Thọ</div>
+
+    <div class="justify" style="margin-top: 15px;">
+        <p>Tên tôi là: <span class="text-bold">{{HoTen}}</span></p>
+        <p>Địa chỉ: {{DiaChiThuongTru}}</p>
+        <p>Số CMND/CCCD: {{CCCD}} – cấp ngày: {{CCCD_NgayCap}}</p>
+
+        <p style="margin-top: 15px;">Đề nghị thanh toán số tiền: <span class="text-bold">{{SotienThanhToan}} đồng</span></p>
+        <p>(Viết bằng chữ): {{SotienThanhToanBangChu}}</p>
+
+        <p style="margin-top: 15px;">Lý do thanh toán:</p>
+        <p>- Thanh toán tiền thuê đất đặt trạm BTS từ {{TuNgay}} đến {{DenNgay}} theo hợp đồng số {{SoHopDong}}/HĐTD ký ngày {{NgayKyHD}}</p>
+
+        <p style="margin-top: 15px;">Số tiền trên được chuyển khoản như sau:</p>
+        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'none' : 'block';">
+            <p>Người thụ hưởng: <span class="text-bold">{{HoTen}}</span></p>
+            <p>Số tài khoản hưởng: {{SoTaiKhoan}} Ngân hàng: {{NganHang}}</p>
+        </div>
+        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+            <p>Người thụ hưởng: <span class="text-bold">{{UQ_HoTen}}</span> (Theo giấy uỷ quyền)</p>
+            <p>Số tài khoản hưởng: {{UQ_SoTaiKhoan}} Ngân hàng: {{UQ_NganHang}}</p>
+        </div>
+
+        <p style="margin-top: 15px;">Tôi xin chân thành cảm ơn!</p>
+        
+        <table class="signature-table">
+            <tr>
+                <td></td>
+                <td class="text-bold">Người đề nghị<br><span style="font-weight: normal; font-style: italic;">(Ký, ghi rõ họ tên)</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="height: 100px;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding-top: 10px;" class="text-bold">{{HoTen}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ==========================================
+         PHẦN 4: BẢN CAM KẾT THUẾ TNCN
+    =========================================== -->
+    <div class="page-break"></div>
+    <div class="header text-center">
+        <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+        <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
+        <p>Mẫu số: 08/CK-TNCN</p>
+    </div>
+
+    <div class="contract-title" style="margin-top: 30px;">BẢN CAM KẾT</div>
+    <div class="text-center text-italic">(Áp dụng khi cá nhân nhận thu nhập chưa đến mức chịu thuế TNCN)</div>
+    
+    <div class="text-center text-bold" style="margin-top: 20px;">Kính gửi: VIỄN THÔNG PHÚ THỌ</div>
+
+    <div class="justify" style="margin-top: 20px;">
+        <p>1. Tên tôi là: <span class="text-bold">{{HoTen}}</span></p>
+        <p>2. Mã số thuế: {{MaSoThue}}</p>
+        <p>3. Địa chỉ cư trú: {{DiaChiThuongTru}}</p>
+
+        <p style="margin-top: 15px;">Tôi cam kết rằng, năm 2026 tôi có tổng thu nhập từ doanh thu dịch vụ thuộc diện phải khấu trừ thuế theo tỷ lệ 10%, nhưng theo ước tính tổng thu nhập trong năm của tôi không quá 100 triệu đồng chưa đến mức phải nộp thuế. Vì vậy, tôi đề nghị Viễn thông Phú Thọ căn cứ vào bản cam kết này để không khấu trừ thuế TNCN khi trả thu nhập cho tôi.</p>
+        <p>Tôi chịu hoàn toàn trách nhiệm trước pháp luật về những số liệu đã khai báo.</p>
+        
+        <table class="signature-table">
+            <tr>
+                <td></td>
+                <td class="text-bold">Cá nhân cam kết<br><span style="font-weight: normal; font-style: italic;">(Ký, ghi rõ họ tên)</span></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="height: 100px;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td style="padding-top: 10px;" class="text-bold">{{HoTen}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- ==========================================
+         PHẦN 5: GIẤY ỦY QUYỀN (Hiện/Ẩn dựa theo data)
+    =========================================== -->
+    <div class="page-break" style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+        <div class="header text-center">
+            <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+            <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
+        </div>
+        <div class="text-right text-italic" style="text-align: right; margin-top: 20px;">Phú Thọ, ngày   tháng   năm 2026</div>
+
+        <div class="contract-title">GIẤY ỦY QUYỀN</div>
+
+        <div class="justify">
+            <p>Tôi tên là: <span class="text-bold">{{HoTen}}</span></p>
+            <p>Số CCCD: {{CCCD}} - cấp ngày {{CCCD_NgayCap}}</p>
+            <p>Địa chỉ: {{DiaChiThuongTru}}</p>
+
+            <p style="margin-top: 15px;">Nay bằng văn bản này tôi ủy quyền cho Ông/bà <span class="text-bold">{{UQ_HoTen}}</span> (CCCD: {{UQ_CCCD}}) nhận tiền thanh toán cho thuê mặt bằng sử dụng để treo thiết bị trạm viễn thông.</p>
+            <p>Đề nghị quý cơ quan thanh toán theo số tài khoản sau:</p>
+            <p>Người thụ hưởng: {{UQ_HoTen}}</p>
+            <p>Số tài khoản hưởng: {{UQ_SoTaiKhoan}} tại ngân hàng {{UQ_NganHang}}</p>
+
+            <table class="signature-table">
+                <tr>
+                    <td class="text-bold">NGƯỜI ĐƯỢC ỦY QUYỀN</td>
+                    <td class="text-bold">NGƯỜI ỦY QUYỀN</td>
+                </tr>
+                <tr>
+                    <td style="height: 100px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-bold" style="padding-top: 10px;">{{UQ_HoTen}}</td>
+                    <td class="text-bold" style="padding-top: 10px;">{{HoTen}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PHẦN 6: GIẤY ĐỀ NGHỊ THANH TOÁN (NỘI BỘ)
+    =========================================== -->
+    <div class="page-break"></div>
+    <div class="header text-center">
+        <div class="text-bold">VIỄN THÔNG PHÚ THỌ - TRUNG TÂM HẠ TẦNG</div>
+    </div>
+    <div class="text-right text-italic" style="text-align: right; margin-top: 20px;">Phú Thọ, ngày   tháng   năm 2026</div>
+
+    <div class="contract-title">GIẤY ĐỀ NGHỊ THANH TOÁN</div>
+
+    <div class="justify" style="margin-top: 20px;">
+        <p>Tên tôi là: <span class="text-bold">{{MaNV}}</span></p>
+        <p>Bộ phận: Tổ tổng hợp - Đơn vị: Trung tâm hạ tầng</p>
+
+        <p style="margin-top: 15px; font-weight: bold;">Nội dung thanh toán:</p>
+        <p>Thanh toán tiền thuê đất XD trạm BTS: Trạm {{TenTram}} từ ngày {{TuNgay}} đến {{DenNgay}} theo HĐ số {{SoHopDong}}/HĐTD ngày {{NgayKyHD}}.</p>
+        <p>Số tiền: <span class="text-bold">{{SotienThanhToan}} đồng</span></p>
+
+        <p style="margin-top: 15px; font-weight: bold;">Người thụ hưởng:</p>
+        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'none' : 'block';">
+            <p>Ông/bà: {{HoTen}}</p>
+            <p>Tài khoản: {{SoTaiKhoan}} Ngân hàng: {{NganHang}}</p>
+        </div>
+        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+            <p>Ông/bà: {{UQ_HoTen}}</p>
+            <p>Tài khoản: {{UQ_SoTaiKhoan}} Ngân hàng: {{UQ_NganHang}}</p>
+        </div>
+
+        <table class="signature-table" style="margin-top: 40px;">
+            <tr>
+                <td class="text-bold">GIÁM ĐỐC TRUNG TÂM</td>
+                <td class="text-bold">NGƯỜI ĐỀ NGHỊ</td>
+            </tr>
+            <tr>
+                <td style="height: 100px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td style="padding-top: 10px;" class="text-bold"></td>
+                <td class="text-bold">{{MaNV}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Script Tự Động In -->
     <script>
         window.onload = function() {
             setTimeout(() => {
