@@ -101,6 +101,15 @@ export default async function handler(req, res) {
       rowData['SotienThanhToanBangChu'] = numberToWords(rawSoTien);
     }
 
+    const rawGiaThang = rowData['GiaThueThang'] || '';
+    rowData['GiaThueThang'] = formatCurrency(rawGiaThang);
+
+    const rawGiaNam = rowData['GiaThueNam'] || '';
+    rowData['GiaThueNam'] = formatCurrency(rawGiaNam);
+    if (!rowData['GiaThueChu'] || rowData['GiaThueChu'].trim() === '') {
+      rowData['GiaThueChu'] = numberToWords(rawGiaNam);
+    }
+
     // Thay thế tất cả các placeholder {{key}}
     htmlContent = htmlContent.replace(/{{([^{}]+)}}/g, (match, paramKey) => {
       const value = rowData[paramKey.trim()];
