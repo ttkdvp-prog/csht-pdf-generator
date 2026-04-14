@@ -9,11 +9,22 @@
         }
         body {
             font-family: "Times New Roman", Times, serif;
-            font-size: 13pt; /* Chuẩn văn bản hành chính */
+            font-size: 14pt; /* Chuẩn văn bản hành chính */
             line-height: 1.5;
             color: #000;
-            margin: 0;
-            padding: 0;
+            margin: 0 auto;
+            max-width: 21cm; /* Rộng A4 */
+            padding: 20px;
+            background: #fff;
+        }
+        @page {
+            size: A4 portrait;
+            margin: 20mm 20mm 20mm 30mm;
+        }
+        @media print {
+            body { 
+                padding: 0;
+            }
         }
         .text-center { text-align: center; }
         .text-bold { font-weight: bold; }
@@ -134,10 +145,19 @@
                 <td></td>
             </tr>
             <tr>
-                <td>{{HoTen}}</td>
+                <td style="padding-top: 10px;">{{HoTen}}</td>
                 <td></td>
             </tr>
         </table>
     </div>
+
+    <!-- Script Tự Động Kích Hoạt Chế Độ Print PDF Của Trình Duyệt -->
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                window.print();
+            }, 500);
+        };
+    </script>
 </body>
 </html>
