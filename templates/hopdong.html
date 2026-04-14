@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hợp Đồng CSHT</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 13pt; /* Chuẩn văn bản hành chính */
+            line-height: 1.5;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .text-center { text-align: center; }
+        .text-bold { font-weight: bold; }
+        .text-italic { font-style: italic; }
+        .justify { text-align: justify; }
+        .header { margin-bottom: 10px; }
+        .contract-title { 
+            font-size: 15pt; 
+            margin-top: 20px; 
+            margin-bottom: 5px; 
+            font-weight: bold;
+            text-align: center;
+        }
+        .dashed-line { 
+            border-top: 1px solid #000; 
+            width: 30%; 
+            margin: 5px auto 20px auto; 
+        }
+        .section-title { 
+            margin-top: 15px; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .signature-table { 
+            width: 100%; 
+            margin-top: 30px; 
+            border: none;
+        }
+        .signature-table td { 
+            width: 50%; 
+            text-align: center; 
+            vertical-align: top; 
+        }
+        P {
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+        <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
+    </div>
+
+    <div class="contract-title">HỢP ĐỒNG THUÊ CƠ SỞ HẠ TẦNG/ MẶT BẰNG TRẠM BTS</div>
+    <div class="text-center">Số: {{SoHopDong}}/HĐT-CSHT</div>
+    <div class="dashed-line"></div>
+
+    <div class="justify">
+        <p>- Căn cứ Bộ luật Dân sự số 91/2015/QH13;</p>
+        <p>- Căn cứ nhu cầu và khả năng thực tế của hai bên;</p>
+        
+        <p style="margin-top: 15px;">Hôm nay, ngày ký hợp đồng: {{NgayKyHD}}, tại {{DiaChiTram}}, chúng tôi gồm:</p>
+
+        <div class="section-title">BÊN CHO THUÊ (BÊN A):</div>
+        <p>Ông/bà: <span class="text-bold">{{HoTen}}</span></p>
+        <p>Sinh ngày: {{NgaySinh}}</p>
+        <p>Số CCCD: {{CCCD}} &nbsp;&nbsp;&nbsp;&nbsp;Ngày cấp: {{CCCD_NgayCap}}</p>
+        <p>Địa chỉ thường trú: {{DiaChiThuongTru}}</p>
+        <p>Số điện thoại: {{SoDienThoai}}</p>
+        <p>Mã số thuế: {{MaSoThue}}</p>
+        <p>Tình trạng quyền sử dụng đất: {{TinhTrangGiayDat}}. Số GCNQSDD: {{GiayCNQSDD}}.</p>
+        <p>Thông tin thanh toán:</p>
+        <p>Số tài khoản: <span class="text-bold">{{SoTaiKhoan}}</span> tại Ngân hàng: <span class="text-bold">{{NganHang}}</span></p>
+
+        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+            <p class="text-italic" style="margin-top: 10px;">Người được ủy quyền nhận tiền:</p>
+            <p>Ông/bà: <span class="text-bold">{{UQ_HoTen}}</span></p>
+            <p>Số CCCD: {{UQ_CCCD}} &nbsp;&nbsp;&nbsp;&nbsp;Ngày cấp: {{UQ_CCCD_NgayCap}}</p>
+            <p>Địa chỉ: {{UQ_DiaChi}}</p>
+            <p>Số điện thoại: {{UQ_SoDienThoai}}</p>
+            <p>Tài khoản nhận tiền: <span class="text-bold">{{UQ_SoTaiKhoan}}</span> - Ngân hàng: <span class="text-bold">{{UQ_NganHang}}</span></p>
+        </div>
+
+        <div class="section-title">BÊN THUÊ (BÊN B): ĐẠI DIỆN ĐƠN VỊ THUÊ CSHT</div>
+        <p>Mã nhân viên phụ trách: {{MaNV}}</p>
+        <p>Điện thoại liên hệ: {{DienThoaiLienHeBenB}}</p>
+
+        <div class="text-bold text-center" style="margin-top: 20px; font-size: 14pt;">
+            HAI BÊN THỐNG NHẤT KÝ KẾT HỢP ĐỒNG KHAI THÁC THUÊ MẶT BẰNG VỚI CÁC ĐIỀU KHOẢN SAU:
+        </div>
+
+        <div class="section-title">ĐIỀU 1: THÔNG TIN VÀ DIỆN TÍCH THUÊ</div>
+        <p>1.1. Bên A đồng ý cho Bên B thuê lại không gian khu vực thuộc quyền sở hữu của Bên A tại địa chỉ: {{DiaChiTram}}</p>
+        <p>- Mã trạm: <span class="text-bold">{{MaTram}}</span></p>
+        <p>- Tên trạm: {{TenTram}}</p>
+        <p>- Khu vực vị trí: {{MoTaViTri}} (Khu vực quản lý: {{Site}}).</p>
+        <p>1.2. Diện tích mặt bằng thuê là: <span class="text-bold">{{DienTichThue_m2}}</span> m2.</p>
+
+        <div class="section-title">ĐIỀU 2: THỜI HẠN VÀ CHI PHÍ THUÊ</div>
+        <p>2.1. Thời hạn thuê của Hợp đồng là: {{ThoiHanNam}}.</p>
+        <p>2.2. Thời gian thuê tính từ ngày: {{TuNgay}} đến hết ngày {{DenNgay}}.</p>
+        <p>2.3. Ngày bắt đầu tính tiền: {{NgayBatDauTinhTien}}.</p>
+        <p>2.4. Giá thuê theo tháng: <span class="text-bold">{{GiaThueThang}}</span> VNĐ.</p>
+        <p>2.5. Giá trị thuê 01 năm tương đương: <span class="text-bold">{{GiaThueNam}}</span> VNĐ</p>
+        <p class="text-italic">(Bằng chữ: {{GiaThueChu}}).</p>
+
+        <div class="section-title">ĐIỀU 3: CHU KỲ VÀ THỜI ĐIỂM THANH TOÁN</div>
+        <p>3.1. Chu kỳ trả tiền định kỳ: {{ChuKyThanhToan}}.</p>
+        <p>3.2. Số tiền mỗi lần thanh toán thực tiễn: <span class="text-bold">{{SotienThanhToan}}</span> VNĐ</p>
+        <p class="text-italic">(Bằng chữ: {{SotienThanhToanBangChu}}).</p>
+        <p>3.3. Tên chu kỳ/ thời điểm thanh toán hiện tại: {{ThoiDiemThanhToan}}.</p>
+
+        <div class="section-title">ĐIỀU 4: CÁC CAM KẾT KHÁC VÀ BẤT KHẢ KHÁNG</div>
+        <p>- Hai bên cam kết thực hiện đúng toàn bộ các điều khoản trong hợp đồng này.</p>
+        <p>- Các điều kiện bổ sung trong quá trình thực hiện hợp đồng: {{GhiChu}}</p>
+
+        <p style="margin-top: 15px;">Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản làm cơ sở thực hiện. Hai bên cùng đọc lại và ký tên xác nhận ở dưới:</p>
+
+        <table class="signature-table">
+            <tr>
+                <td class="text-bold">ĐẠI DIỆN BÊN A<br><span style="font-weight: normal; font-style: italic;">(Ký, ghi rõ họ tên)</span></td>
+                <td class="text-bold">ĐẠI DIỆN BÊN B<br><span style="font-weight: normal; font-style: italic;">(Ký, ghi rõ họ tên)</span></td>
+            </tr>
+            <tr>
+                <td style="height: 100px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>{{HoTen}}</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
