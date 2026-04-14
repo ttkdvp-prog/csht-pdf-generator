@@ -252,14 +252,14 @@
         <p>- Thanh toán tiền thuê đất đặt trạm BTS từ {{TuNgay}} đến {{DenNgay}} theo hợp đồng số {{SoHopDong}}/HĐTD ký ngày {{NgayKyHD}}</p>
 
         <p style="margin-top: 15px;">Số tiền trên được chuyển khoản như sau:</p>
-        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'none' : 'block';">
+        <!--IF_DIRECT_START-->
             <p>Người thụ hưởng: <span class="text-bold">{{HoTen}}</span></p>
             <p>Số tài khoản hưởng: {{SoTaiKhoan}} Ngân hàng: {{NganHang}}</p>
-        </div>
-        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+        <!--IF_DIRECT_END-->
+        <!--IF_UQ_START-->
             <p>Người thụ hưởng: <span class="text-bold">{{UQ_HoTen}}</span> (Theo giấy uỷ quyền)</p>
             <p>Số tài khoản hưởng: {{UQ_SoTaiKhoan}} Ngân hàng: {{UQ_NganHang}}</p>
-        </div>
+        <!--IF_UQ_END-->
 
         <p style="margin-top: 15px;">Tôi xin chân thành cảm ơn!</p>
         
@@ -321,41 +321,42 @@
     <!-- ==========================================
          PHẦN 5: GIẤY ỦY QUYỀN (Hiện/Ẩn dựa theo data)
     =========================================== -->
-    <div class="page-break" style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
-        <div class="header text-center">
-            <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
-            <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
-        </div>
-        <div class="text-right text-italic" style="text-align: right; margin-top: 20px;">Phú Thọ, ngày   tháng   năm 2026</div>
-
-        <div class="contract-title">GIẤY ỦY QUYỀN</div>
-
-        <div class="justify">
-            <p>Tôi tên là: <span class="text-bold">{{HoTen}}</span></p>
-            <p>Số CCCD: {{CCCD}} - cấp ngày {{CCCD_NgayCap}}</p>
-            <p>Địa chỉ: {{DiaChiThuongTru}}</p>
-
-            <p style="margin-top: 15px;">Nay bằng văn bản này tôi ủy quyền cho Ông/bà <span class="text-bold">{{UQ_HoTen}}</span> (CCCD: {{UQ_CCCD}}) nhận tiền thanh toán cho thuê mặt bằng sử dụng để treo thiết bị trạm viễn thông.</p>
-            <p>Đề nghị quý cơ quan thanh toán theo số tài khoản sau:</p>
-            <p>Người thụ hưởng: {{UQ_HoTen}}</p>
-            <p>Số tài khoản hưởng: {{UQ_SoTaiKhoan}} tại ngân hàng {{UQ_NganHang}}</p>
-
-            <table class="signature-table">
-                <tr>
-                    <td class="text-bold">NGƯỜI ĐƯỢC ỦY QUYỀN</td>
-                    <td class="text-bold">NGƯỜI ỦY QUYỀN</td>
-                </tr>
-                <tr>
-                    <td style="height: 80px;"></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="text-bold" style="padding-top: 10px;">{{UQ_HoTen}}</td>
-                    <td class="text-bold" style="padding-top: 10px;">{{HoTen}}</td>
-                </tr>
-            </table>
-        </div>
+<!--IF_UQ_START-->
+    <div class="page-break"></div>
+    <div class="header text-center">
+        <div class="text-bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</div>
+        <div class="text-bold text-italic" style="text-decoration: underline;">Độc lập - Tự do - Hạnh phúc</div>
     </div>
+    <div class="text-right text-italic" style="text-align: right; margin-top: 20px;">Phú Thọ, ngày   tháng   năm 2026</div>
+
+    <div class="contract-title">GIẤY ỦY QUYỀN</div>
+
+    <div class="justify">
+        <p>Tôi tên là: <span class="text-bold">{{HoTen}}</span></p>
+        <p>Số CCCD: {{CCCD}} - cấp ngày {{CCCD_NgayCap}}</p>
+        <p>Địa chỉ: {{DiaChiThuongTru}}</p>
+
+        <p style="margin-top: 15px;">Nay bằng văn bản này tôi ủy quyền cho Ông/bà <span class="text-bold">{{UQ_HoTen}}</span> (CCCD: {{UQ_CCCD}}) nhận tiền thanh toán cho thuê mặt bằng sử dụng để treo thiết bị trạm viễn thông.</p>
+        <p>Đề nghị quý cơ quan thanh toán theo số tài khoản sau:</p>
+        <p>Người thụ hưởng: {{UQ_HoTen}}</p>
+        <p>Số tài khoản hưởng: {{UQ_SoTaiKhoan}} tại ngân hàng {{UQ_NganHang}}</p>
+
+        <table class="signature-table">
+            <tr>
+                <td class="text-bold">NGƯỜI ĐƯỢC ỦY QUYỀN</td>
+                <td class="text-bold">NGƯỜI ỦY QUYỀN</td>
+            </tr>
+            <tr>
+                <td style="height: 80px;"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="text-bold" style="padding-top: 10px;">{{UQ_HoTen}}</td>
+                <td class="text-bold" style="padding-top: 10px;">{{HoTen}}</td>
+            </tr>
+        </table>
+    </div>
+<!--IF_UQ_END-->
 
     <!-- ==========================================
          PHẦN 6: GIẤY ĐỀ NGHỊ THANH TOÁN (NỘI BỘ)
@@ -377,14 +378,14 @@
         <p>Số tiền: <span class="text-bold">{{SotienThanhToan}} đồng</span></p>
 
         <p style="margin-top: 15px; font-weight: bold;">Người thụ hưởng:</p>
-        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'none' : 'block';">
+        <!--IF_DIRECT_START-->
             <p>Ông/bà: {{HoTen}}</p>
             <p>Tài khoản: {{SoTaiKhoan}} Ngân hàng: {{NganHang}}</p>
-        </div>
-        <div style="display: {{CoUyQuyenNhanTien}} == 'TRUE' ? 'block' : 'none';">
+        <!--IF_DIRECT_END-->
+        <!--IF_UQ_START-->
             <p>Ông/bà: {{UQ_HoTen}}</p>
             <p>Tài khoản: {{UQ_SoTaiKhoan}} Ngân hàng: {{UQ_NganHang}}</p>
-        </div>
+        <!--IF_UQ_END-->
 
         <table class="signature-table" style="margin-top: 40px;">
             <tr>

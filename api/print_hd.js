@@ -42,10 +42,23 @@ export default async function handler(req, res) {
     const templatePath = path.join(process.cwd(), 'templates', 'hopdong.html');
     let htmlContent = fs.readFileSync(templatePath, 'utf8');
 
+    // Thay thế tất cả các placeholder {{key}}
     htmlContent = htmlContent.replace(/{{([^{}]+)}}/g, (match, paramKey) => {
       const value = rowData[paramKey.trim()];
       return value !== undefined && value !== null ? value : '';
     });
+
+    // Xử lý hiển thị có điều kiện: khối ủy quyền vs trực tiếp
+    const hasProxy = (rowData['CoUyQuyenNhanTien'] || '').toString().toUpperCase() === 'TRUE';
+    if (hasProxy) {
+      // Có ủy quyền: Giữ khối UQ, xóa khối DIRECT
+      htmlContent = htmlContent.replace(/<!--IF_DIRECT_START-->[\s\S]*?<!--IF_DIRECT_END-->/g, '');
+      htmlContent = htmlContent.replace(/<!--IF_UQ_START-->/g, '').replace(/<!--IF_UQ_END-->/g, '');
+    } else {
+      // Không có ủy quyền: Giữ khối DIRECT, xóa khối UQ (kể cả trang Giấy Ủy Quyền)
+      htmlContent = htmlContent.replace(/<!--IF_UQ_START-->[\s\S]*?<!--IF_UQ_END-->/g, '');
+      htmlContent = htmlContent.replace(/<!--IF_DIRECT_START-->/g, '').replace(/<!--IF_DIRECT_END-->/g, '');
+    }
 
     // Trả thẳng HTML chuẩn mực A4 cho trình duyệt kèm lệnh tự động mở hộp thoại In/Lưu PDF
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
